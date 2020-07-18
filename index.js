@@ -4,6 +4,7 @@
 // (done) Get Input Questionare set up
 // (done) get configuration object set up(have the top - down flow of the object mirror the eventual document)
 // get Readme hard file set up
+// get the badges to workout https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
 // Get progressive top down build, based on object
 // Record the video
 // create a github repo that hosts the video 
@@ -64,5 +65,31 @@ inquirer.prompt([
     },
 ]).then(function (data) {
     console.log(data);
+
+    const readme_text = `# Title \n 
+    ### Table of Contents \n
+    [** Description **](#Description)[** Installation **](#Installation)[** Usage **](#Usage)[** License **](#License)[** Contributing **](#Contributing)[** Tests **](#Tests)[** Questions **](#Questions)[** Images **](#Images) \n
+    ### Description \n
+    ### Installation \n
+    ### Usage \n
+    ### License \n
+    ### Contributing \n
+    ### Tests \n
+    ### Questions \n
+    For additional projects and materials, go to *** github link *** \n
+    For additional questions, email me at *** email *** \n
+    ### Images \n
+    [** Top of Page **](#Title) \n`
+
+
+    fs.writeFile("log.txt", readme_text, function (err) {
+
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("Readme Created");
+
+    });
 
 });
