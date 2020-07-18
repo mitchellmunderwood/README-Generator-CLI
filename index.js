@@ -7,3 +7,13 @@
 // Get progressive top down build, based on object
 // Record the video
 // create a github repo that hosts the video 
+
+
+var inquirer = require("inquirer");
+var fs = require("fs");
+
+inquirer.prompt({
+
+}).then(function (data) {
+
+});
