@@ -3,9 +3,9 @@
 // (done) Get the skeleton set up
 // (done) Get Input Questionare set up
 // (done) get configuration object set up(have the top - down flow of the object mirror the eventual document)
-// get Readme hard file set up
+// (done) get Readme hard file set up
+// (done) Get progressive top down build, based on object
 // get the badges to workout https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
-// Get progressive top down build, based on object
 // Record the video
 // create a github repo that hosts the video 
 
@@ -13,19 +13,12 @@
 var inquirer = require("inquirer");
 var fs = require("fs");
 
+// Input your default github and email
+var github = "sassypigeon"
+var email = "mitchellmunderwood@gmail.com"
+
+// Prompt and Document generation
 inquirer.prompt([
-    {
-        type: "input",
-        name: "user_github",
-        message: "Please input your github username.",
-        default: ""
-    },
-    {
-        type: "input",
-        name: "user_email",
-        message: "Please input your email address.",
-        default: ""
-    },
     {
         type: "input",
         name: "project_title",
@@ -51,6 +44,18 @@ inquirer.prompt([
         default: ""
     },
     {
+        type: "list",
+        name: "project_license",
+        choices: [
+            "Apache 2.0",
+            "BSD 2.0",
+            "BSD 3.0",
+            "GPL 2.0",
+            "GPL 3.0",
+            "MIT"
+        ]
+    },
+    {
         type: "input",
         name: "project_contribution",
         message: "Please input the project's contribution guidelines.",
@@ -58,51 +63,79 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "project_test",
+        name: "project_tests",
         message: "Please input the project's test instructions.",
         default: ""
     },
     {
-        type: "list",
-        name: "project_license",
-        choices: [
-            "license #1",
-            "license #2",
-            "license #3",
-        ]
-    },
-    {
         type: "input",
-        name: "project_question",
+        name: "project_questions",
         message: "Please input any project questions.",
         default: ""
     },
+    {
+        type: "input",
+        name: "user_github",
+        message: "Please input your github username.",
+        default: `${github}`
+    },
+    {
+        type: "input",
+        name: "user_email",
+        message: "Please input your email address.",
+        default: `${email}`
+    }
 ]).then(function (data) {
     console.log(data);
 
+    let license_text;
+
+    switch (data.project_license) {
+        case 'MIT':
+            license_text = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+            break;
+        case 'GPL 3.0':
+            license_text = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+            break;
+        case 'GPL 2.0':
+            license_text = '[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)';
+            break;
+        case 'Apache 2.0':
+            license_text = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+            break;
+        case 'BSD 2.0':
+            license_text = '[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)';
+            break;
+        case 'BSD 3.0':
+            license_text = '[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
+            break;
+        default:
+            license_text = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+            break;
+    }
+
+
     const readme_text =
         `# ${data.project_title} \n` +
+        `${license_text} \n` +
         '### Table of Contents \n' +
-        `[**Description**](#Description)    [**Installation**](#Installation)   [**Usage**](#Usage)    [**License**](#License)    [**Contributing**](#Contributing)    [**Tests**](#Tests)   [**Questions**](#Questions)    [**Images**](#Images) \n` +
-        `### Description \n ${data.project_description} \n` +
+        `[**Description**](#Description)    [**Installation**](#Installation)   [**Usage**](#Usage)    [**License**](#License)    [**Contributing**](#Contributing)    [**Tests**](#Tests)   [**Questions**](#Questions)\n` +
+        `### Description \n` +
+        `${data.project_description} \n` +
         `### Installation \n ${data.project_installation} \n` +
         `### Usage \n ${data.project_usage} \n` +
         `### License \n ${data.project_license} \n` +
         `### Contributing \n ${data.project_contribution} \n` +
-        `### Tests \n ${data.project_test} \n` +
-        `### Questions \n ${data.project_question} \n\n` +
+        `### Tests \n ${data.project_tests} \n` +
+        `### Questions \n ${data.project_questions} \n\n` +
         `For additional projects and materials, go to ***[github.com/${data.user_github}](https://github.com/${data.user_github})*** \n` +
-        `For additional questions, email me at ***${data.user_email}*** \n` +
+        `For additional questions, email me at ***${data.user_email}*** \n`
 
-
-        fs.writeFile("README.md", readme_text, function (err) {
-
-            if (err) {
-                return console.log(err);
-            }
-
-            console.log("Readme Created");
-
-        });
+    fs.writeFile("README.md", readme_text, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Readme Created");
+    });
 
 });
