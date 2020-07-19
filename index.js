@@ -86,7 +86,7 @@ inquirer.prompt([
         default: `${email}`
     }
 ]).then(function (data) {
-    console.log(data);
+
 
     let license_text;
 
@@ -118,17 +118,16 @@ inquirer.prompt([
     const readme_text =
         `# ${data.project_title} \n` +
         `${license_text} \n` +
+        `### Description \n ${data.project_description} \n` +
         '### Table of Contents \n' +
         `[**Description**](#Description)    [**Installation**](#Installation)   [**Usage**](#Usage)    [**License**](#License)    [**Contributing**](#Contributing)    [**Tests**](#Tests)   [**Questions**](#Questions)\n` +
-        `### Description \n` +
-        `${data.project_description} \n` +
         `### Installation \n ${data.project_installations} \n` +
         `### Usage \n ${data.project_usage} \n` +
         `### License \n` +
         `This project is covered under the ${data.project_license} license. \n` +
         `### Contributing \n ${data.project_contribution} \n` +
         `### Tests \n ${data.project_tests} \n` +
-        `### Questions \n ${data.project_questions} \n\n` +
+        `### Questions \n ${data.project_questions} \n` +
         `For additional projects and materials, go to ***[github.com/${data.user_github}](https://github.com/${data.user_github})*** \n` +
         `For additional questions, email me at ***${data.user_email}*** \n`
 
