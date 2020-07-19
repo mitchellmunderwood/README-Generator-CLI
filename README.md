@@ -1,27 +1,31 @@
-# Project Title 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
+# README Generator 
 ### Description 
+
+Here is a helpful CLI tool to dynamically generate README files for your software projects.
 
 ### Table of Contents 
 [**Description**](#Description)    [**Installation**](#Installation)   [**Usage**](#Usage)    [**License**](#License)    [**Contributing**](#Contributing)    [**Tests**](#Tests)   [**Questions**](#Questions)
-### Installation 
-
+### Installation
+Once you download the package files and run npm install, all that you need to do is run 'node index.js' to start the document creation flow.
 ### Usage 
 
 ### License 
-This project is covered under the Apache 2.0 license. 
+
+This project is currently utilizing no license.
+
 ### Contributing 
 
 ### Tests 
 
 ### Questions 
 
-For additional projects and materials, go to ***[github.com/sassypigeon](https://github.com/sassypigeon)*** 
-For additional questions, email me at ***mitchellmunderwood@gmail.com*** 
+For additional projects and materials, go to ***[github.com/sassypigeon](https://github.com/sassypigeon)***. 
+
+For additional questions, email me at ***mitchellmunderwood@gmail.com***. 
 
 ### Images
 
-![instructions](./README Support/instructions.png)
+![instructions](./README_Support/instructions.png)
 
-![sample](./README Support/sample.png)
+![sample](./README_Support/sample.png)
 

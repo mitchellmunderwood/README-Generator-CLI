@@ -128,7 +128,7 @@ inquirer.prompt([
         `### Contributing \n ${data.project_contribution} \n` +
         `### Tests \n ${data.project_tests} \n` +
         `### Questions \n ${data.project_questions} \n` +
-        `For additional projects and materials, go to ***[github.com/${data.user_github}](https://github.com/${data.user_github})*** \n` +
+        `For additional projects and materials, go to ***[github.com/${data.user_github}](https://github.com/${data.user_github})***. \n` +
         `For additional questions, email me at ***${data.user_email}*** \n`
 
     fs.writeFile("README.md", readme_text, function (err) {
