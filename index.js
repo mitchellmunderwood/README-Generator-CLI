@@ -23,7 +23,7 @@ inquirer.prompt([
         type: "input",
         name: "project_title",
         message: "Please input the project's title.",
-        default: ""
+        default: "Project Title"
     },
     {
         type: "input",
@@ -122,9 +122,10 @@ inquirer.prompt([
         `[**Description**](#Description)    [**Installation**](#Installation)   [**Usage**](#Usage)    [**License**](#License)    [**Contributing**](#Contributing)    [**Tests**](#Tests)   [**Questions**](#Questions)\n` +
         `### Description \n` +
         `${data.project_description} \n` +
-        `### Installation \n ${data.project_installation} \n` +
+        `### Installation \n ${data.project_installations} \n` +
         `### Usage \n ${data.project_usage} \n` +
-        `### License \n ${data.project_license} \n` +
+        `### License \n` +
+        `This project is covered under the ${data.project_license} license. \n` +
         `### Contributing \n ${data.project_contribution} \n` +
         `### Tests \n ${data.project_tests} \n` +
         `### Questions \n ${data.project_questions} \n\n` +
