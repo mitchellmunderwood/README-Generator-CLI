@@ -120,7 +120,13 @@ inquirer.prompt([
         `${license_text} \n` +
         `### Description \n ${data.project_description} \n` +
         '### Table of Contents \n' +
-        `[**Description**](#Description)    [**Installation**](#Installation)   [**Usage**](#Usage)    [**License**](#License)    [**Contributing**](#Contributing)    [**Tests**](#Tests)   [**Questions**](#Questions)\n` +
+        `- [**Description**](#Description) \n` +
+        `- [**Installation**](#Installation) \n` +
+        `- [**Usage**](#Usage) \n` +
+        `- [**License**](#License) \n` +
+        `- [**Contributing**](#Contributing) \n` +
+        `- [**Tests**](#Tests) \n` +
+        `[**Questions**](#Questions)\n` +
         `### Installation \n ${data.project_installations} \n` +
         `### Usage \n ${data.project_usage} \n` +
         `### License \n` +
