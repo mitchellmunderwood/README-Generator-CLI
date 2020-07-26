@@ -126,7 +126,7 @@ inquirer.prompt([
         `- [**License**](#License) \n` +
         `- [**Contributing**](#Contributing) \n` +
         `- [**Tests**](#Tests) \n` +
-        `[**Questions**](#Questions)\n` +
+        `- [**Questions**](#Questions)\n` +
         `### Installation \n ${data.project_installations} \n` +
         `### Usage \n ${data.project_usage} \n` +
         `### License \n` +
